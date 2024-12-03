@@ -1,6 +1,7 @@
 body {
     margin: 0; /* Kenar boşluklarını sıfırlar */
     padding: 0;
+    overflow-x: hidden;
     /*font-family: Arial, sans-serif; /* Yazı tipi */
     background-image: url('/Resimler/arkaPlanResmi.jpg'); /* Arka plan resmi */
     background-size: cover; /* Resmi tam sayfaya uyarlar */
@@ -63,22 +64,28 @@ img {
     height: 100px; /* Yükseklik */
     color: white; /* Yazı rengi */
     position: fixed; /* Div'i sabitler */
+    z-index: 10; /* Üst divin üstte kalması için yüksek z-index */
     width: 100%; /* Genişliği sayfa genişliği yapar */
-    background-color: #0B1526; /* Arka plan rengi */
+   /*background-color: #0B1526; /* Arka plan rengi */
     box-sizing: border-box; /* Padding'in genişliğe dahil edilmesini sağlar */    
 }
-.üst_resim{
+.üst_bilgiler.scrolled {
+    background-color: #0B1526; /* Kaydırıldığında arka plan rengi */
+}
+.üst_resim {
     width: 100%;
-    height: 900px; /* Yüksekliği belirleyin */
+    height: 900px; 
     background-size: cover; /* Resmin tamamını kapsar */
-    /*background-position: center; /* Ortalar */
+    background-position: center; /* Ortalar */
     background-repeat: no-repeat; /* Resmin tekrarlanmamasını sağlar */
     text-align: center;
-    background-image: url(/Resimler/ebyuResimm.png)
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 50%), url(/Resimler/Ebyu_Resim.png);
 }
+
+
 .resimAltıDiv{
     width: 100%;
-    height: 40px;
+    height: 53px;
     background: repeating-linear-gradient(
         45deg, /* Çizgilerin açısı */
         #0A0E2B, /* İlk renk */
@@ -95,15 +102,16 @@ img {
 .kareler {
     width: 118px; 
     height: 98px; 
-    margin: 10px;
+    margin: 11px;
     background-color: #0A0E2B;
-    border-radius: 7px;
+    border-radius: 6px;
     display: flex; /* Flex düzeni */
     flex-direction: column; /* Elemanları dikey hizala */
     align-items: center; /* Ortada hizala */
     justify-content: center; 
     text-align: center; /* Yazıyı ortala */
     position: relative; /* H4'ü konumlandırmak için gerekli */
+    z-index: 1; /* Üst divin arkasında kalacak şekilde z-index */
     transition: transform 0.2s ease, color 0.2s ease; /* Geçiş animasyonu */
 }
 .bilgiIcon{
@@ -144,7 +152,6 @@ img {
     display: flex;
     justify-content: center;
     padding: 20px;
-    width: 100%; 
     height: 200px;
 }
 .duyuru_çizgi, .etkinlik_çizgi{
@@ -179,7 +186,6 @@ img {
     display: flex;
     justify-content: center;
     padding: 20px;
-    width: 100%; 
     height: 550px;
 }
 .haberler_çizgi, .tv_çizgi{
@@ -221,7 +227,6 @@ img {
     display: flex;
     justify-content: center;
     padding: 20px;
-    width: 100%; 
     height: 110px;
 }
 .okul_bilgiler{
@@ -252,7 +257,6 @@ img {
     margin: 0;
 }
 .alt_kareler{
-    width: 100%;
     height: 115px;
     display: flex;
     justify-content: center; 
@@ -313,7 +317,6 @@ img {
     100% { transform: translateX(0); }
   }
 .alt_kareler2{
-    width: 100%;
     height: 115px;
     display: flex;
     justify-content: center; 
